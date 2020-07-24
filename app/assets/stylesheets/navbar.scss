@@ -1,18 +1,33 @@
 #navbar-container{
   color:blue;
   background-color: rgba(200,200,200,0.6);
+  display: flex;;
+  width: 100%;;
+}
+#navbar-menu-container{
+  width:100%;
+  display: flex;
+}
+#navbar-logo{
+  width:10%;
+  font-weight: 800;
+  font-size: 20px;;
+  padding:5px;
 }
 #navbar-menu{
   display: flex;
   list-style: none;
   margin:0;
   li{
-    padding: 5px 5px;
-    width: 6%;
+    padding: 5px 15px;
     font-weight: 800;
     font-size: 16px;;
+    a {
+      text-decoration: none;;
+    }
   }
   :hover{
     background-color: orange;
+    color: black;
   }
 }

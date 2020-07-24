@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<div>
+  <div id="productos-form">
+    <%= form_for(:productos,:url => { :action => 'create'}) do |form|%>
+    <%= form.text_field  :codigo_barras,placeholder: "Codigo Barras" %>
+    <%= form.text_field  :nombre,placeholder: "Nombre" %>
+    <%= form.text_field  :unidad,placeholder: "Unidad" %>
+    <%= form.text_field  :precio_compra,placeholder: "Precio Compra",id:"txt-compra" %>
+    <%= form.text_field  :porcentaje_ganancia,placeholder: "Porcentaje de Ganancia",id:"txt-porcentaje",onkeyup:"calcularPrecio()" %>
+    <%= form.text_field  :precio_medio_mayoreo,placeholder: "Precio Medio Mayoreo" %>
+    <%= form.text_field  :precio_general,placeholder: "Precio General",id:"txtprecio-general" %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soy la pagina Principal de Productos</title>
-</head>
 
-<body>
-  Ferrepa
-</body>
-
-</html>
+    <%= form.submit "Añadir"%>
+    <% end %>
+    <div>
+      <br>
+      <table>
+        <th>Codigo Barras</th>
+        <th>Nombre</th>
+        <th>Unidad</th>
+        <th>Precio Compra</th>
+        <th>Precio Medio Mayoreo</th>
+        <th>Precio General</th>
+        <th>Porcentaje Ganancia</th>
+        <tr>
+          <% @produs.each do |p|%>
+          <td><%= p.codigo_barras %></td>
+          <td><%= p.nombre %></td>
+          <td><%= p.unidad %></td>
+          <td>$<%= p.precio_compra %></td>
+          <td>$<%= p.precio_medio_mayoreo %></td>
+          <td>$<%= p.precio_general %></td>
+          <td><%= p.porcentaje_ganancia %>%</td>
+        </tr>
+        <%  end %>
+      </table>
+    </div>

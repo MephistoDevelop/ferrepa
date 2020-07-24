@@ -1,11 +1,19 @@
 <div id="navbar-container">
   <div id="navbar-menu-container">
-    <ul id="navbar-menu">
-      <li>Clientes</li>
-      <li>Productos</li>
-      <li>Ventas</li>
-      <li>Compras</li>
-      <li>Proveedores</li>
-    </ul>
+    <div id="navbar-logo">FERREPA</div>
+    <div class="w-25">
+      <ul id="navbar-menu">
+        <li> <%= link_to("Productos",productos_path)%></li>
+        <li><%= link_to("Clientes", clientes_path) %></li>
+        <li><%= link_to("Ventas", clientes_path) %></li>
+        <li><%= link_to("Compras", clientes_path) %></li>
+        <li><%= link_to("Proveedores", clientes_path) %></li>
+        <li>Administracion
+          <ul>
+            <li><%= link_to("Inventarios", inventarios_path) %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

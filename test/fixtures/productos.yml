@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_barras: MyString
+  nombre: MyString
+  unidad: MyString
+  precio_compra: MyString
+  precio_medio_mayoreo: MyString
+  precio_general: MyString
+  porcentaje_ganancia: MyString
+
+two:
+  codigo_barras: MyString
+  nombre: MyString
+  unidad: MyString
+  precio_compra: MyString
+  precio_medio_mayoreo: MyString
+  precio_general: MyString
+  porcentaje_ganancia: MyString
