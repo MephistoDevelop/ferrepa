@@ -4,6 +4,15 @@
 table,td,th{
   border:1px solid black;
 }
+table{
+  width: 100%;;
+}
+tr:hover{
+  background-color: rgba(100,160,170,0.6);
+  color:black;
+  font-weight: 800;
+
+}
 #productos-form{
   display: flex;
   flex-direction: column;

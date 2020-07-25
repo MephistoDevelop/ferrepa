@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,10 +17,3 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-const calcularPrecio = () => {
-  const precio = documet.getElementById('txt-compra').value;
-  const porcentaje = document.getElementById('txt-porcentaje').value;
-  let precioGeneral = parseInt(precio)+ (parseInt(precio) * parseInt(porcentaje));
-  document.getElementById('txtprecio-general').value = precioGeneral
-
-}

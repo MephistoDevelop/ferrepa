@@ -1,12 +1,30 @@
 <div>
   <div id="productos-form">
     <%= form_for(:productos,:url => { :action => 'create'}) do |form|%>
-    <%= form.text_field  :codigo_barras,placeholder: "Codigo Barras" %>
-    <%= form.text_field  :nombre,placeholder: "Nombre" %>
-    <%= form.text_field  :unidad,placeholder: "Unidad" %>
+    <script type="text/javascript" charset="utf-8">
+      function change() {
+        const precio = parseInt(document.getElementById("txt-compra").value)
+        const porcentaje = parseFloat("0." + document.getElementById("txt-porcentaje").value)
+        const precioGeneral = precio + (precio * porcentaje)
+        document.getElementById('txtprecio-general').value = precioGeneral
+        console.log("Change !!, porcentaje: " + porcentaje + ' precioGeneral' + precioGeneral)
+      }
+
+      const getTablerow = () => {
+        const codigoBarras = document.getElementById('txt-codigobarras').value = "asd"
+        const nombre = document.getElementById('txtnombre').value = "asd"
+        const unidad = document.getElementById('txtunidad').value = "asd"
+        const precioCompra = document.getElementById('txt-compra').value = "asd"
+        const porcentajeGanancia = document.getElementById('txt-porcentaje').value = "asd"
+      }
+    </script>
+
+    <%= form.text_field  :codigo_barras,placeholder: "Codigo Barras",id:"txt-codigobarras" %>
+    <%= form.text_field  :nombre,placeholder: "Nombre",id:"txtnombre" %>
+    <%= form.text_field  :unidad,placeholder: "Unidad",id:"txtunidad" %>
     <%= form.text_field  :precio_compra,placeholder: "Precio Compra",id:"txt-compra" %>
-    <%= form.text_field  :porcentaje_ganancia,placeholder: "Porcentaje de Ganancia",id:"txt-porcentaje",onkeyup:"calcularPrecio()" %>
-    <%= form.text_field  :precio_medio_mayoreo,placeholder: "Precio Medio Mayoreo" %>
+    <%= form.text_field  :porcentaje_ganancia,placeholder: "Porcentaje de Ganancia",id:"txt-porcentaje" ,onkeyup:"change()"%>
+    <%= form.text_field  :precio_medio_mayoreo,placeholder: "Precio Medio Mayoreo",id:"txt-mediomayoreo" %>
     <%= form.text_field  :precio_general,placeholder: "Precio General",id:"txtprecio-general" %>
 
 
@@ -22,7 +40,7 @@
         <th>Precio Medio Mayoreo</th>
         <th>Precio General</th>
         <th>Porcentaje Ganancia</th>
-        <tr>
+        <tr onclick="">
           <% @produs.each do |p|%>
           <td><%= p.codigo_barras %></td>
           <td><%= p.nombre %></td>
