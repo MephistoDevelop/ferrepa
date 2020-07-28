@@ -4,14 +4,15 @@
     <script type="text/javascript" charset="utf-8">
       function change() {
         const precio = parseInt(document.getElementById("txt-compra").value)
-        const porcentaje = parseFloat("0." + document.getElementById("txt-porcentaje").value)
-        const precioGeneral = precio + (precio * porcentaje)
+        const porcentaje = parseInt(document.getElementById("txt-porcentaje").value)
+        const precioGeneral = ((porcentaje / 100) * precio) + precio
         document.getElementById('txtprecio-general').value = precioGeneral
         console.log("Change !!, porcentaje: " + porcentaje + ' precioGeneral' + precioGeneral)
       }
 
-      const getTablerow = () => {
-        const codigoBarras = document.getElementById('txt-codigobarras').value = "asd"
+      const getTableRow = (id) => {
+        console.log("Me haz llamado:;" + id)
+        const codigoBarras = document.getElementById('txt-codigobarras').value = id
         const nombre = document.getElementById('txtnombre').value = "asd"
         const unidad = document.getElementById('txtunidad').value = "asd"
         const precioCompra = document.getElementById('txt-compra').value = "asd"
@@ -40,8 +41,10 @@
         <th>Precio Medio Mayoreo</th>
         <th>Precio General</th>
         <th>Porcentaje Ganancia</th>
-        <tr onclick="">
-          <% @produs.each do |p|%>
+
+        <% @produs.each do |p|%>
+        <% nombre = p.nombre%>
+        <tr onclick=getTableRow(<%= p.id %>)>
           <td><%= p.codigo_barras %></td>
           <td><%= p.nombre %></td>
           <td><%= p.unidad %></td>
