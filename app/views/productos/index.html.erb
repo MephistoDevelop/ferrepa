@@ -30,6 +30,7 @@
 
 
     <%= form.submit "Añadir"%>
+    <%= form.button "Editar"%>
     <% end %>
     <div>
       <br>
@@ -41,9 +42,9 @@
         <th>Precio Medio Mayoreo</th>
         <th>Precio General</th>
         <th>Porcentaje Ganancia</th>
-
+        <th>Accion</th>
         <% @produs.each do |p|%>
-        <% nombre = p.nombre%>
+
         <tr onclick=getTableRow(<%= p.id %>)>
           <td><%= p.codigo_barras %></td>
           <td><%= p.nombre %></td>
@@ -52,6 +53,7 @@
           <td>$<%= p.precio_medio_mayoreo %></td>
           <td>$<%= p.precio_general %></td>
           <td><%= p.porcentaje_ganancia %>%</td>
+          <td><button>Eliminar</button></td>
         </tr>
         <%  end %>
       </table>
