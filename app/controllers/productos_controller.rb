@@ -19,6 +19,12 @@ class ProductosController < ApplicationController
     # @producto_encontrado.nombre
   end
 
+  def destroy
+    @eliminar_producto = Producto.where(['id=?', params[:id]]).first
+    @eliminar_producto.destroy
+    redirect_to productos_path
+  end
+
   private
 
   def producto_params

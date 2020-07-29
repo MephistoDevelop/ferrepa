@@ -53,7 +53,8 @@
           <td>$<%= p.precio_medio_mayoreo %></td>
           <td>$<%= p.precio_general %></td>
           <td><%= p.porcentaje_ganancia %>%</td>
-          <td><button>Eliminar</button></td>
+          <td><%= button_to "Eliminar", {:controller => :productos,
+      :action => 'destroy', :id => p.id }, :method => :delete %></td>
         </tr>
         <%  end %>
       </table>
